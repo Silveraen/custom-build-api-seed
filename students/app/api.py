@@ -16,8 +16,11 @@ class ValidationError(ValueError):
 
 
 class Student(db.Model):
-    __tablename__ = 'students'
+    __tablename__ = ‘yaybirds’ 
     id = db.Column(db.Integer, primary_key=True)
+    time = db.Column(db.DateTime, index=True)
+    score = db.Column(db.Integer, index=True)
+    domain = db.Column(db.String, index=True)
     name = db.Column(db.String(64), index=True)
 
     def get_url(self):
