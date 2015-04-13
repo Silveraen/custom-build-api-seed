@@ -17,11 +17,18 @@ class ValidationError(ValueError):
 
 class Student(db.Model):
     __tablename__ = ‘yaybirds’ 
-    id = db.Column(db.Integer, primary_key=True)
     time = db.Column(db.DateTime, index=True)
     score = db.Column(db.Integer, index=True)
     domain = db.Column(db.String, index=True)
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String, index=True)
+    author = db.Column(db.String , index=True)
+    ups = db.Column(db.Integer , index=True)
+    downs = db.Column(db.Integer , index=True)
+    num_comments = db.Column(db.Integer , index=True)
+    permalink = db.Column(db.String , index=True)
     name = db.Column(db.String(64), index=True)
+    url = db.Column(db.String , index=True)
 
     def get_url(self):
         return url_for('get_student', id=self.id, _external=True)
