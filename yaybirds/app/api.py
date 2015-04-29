@@ -1,11 +1,13 @@
 import os
-from flask import Flask, url_for, jsonify, request
+from flask import Flask, url_for, jsonify, request, render_template, abort
+from flask.ext.bootstrap import Bootstrap
 from flask.ext.sqlalchemy import SQLAlchemy
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 db_path = os.path.join(basedir, '../birds.sqlite')
 
 app = Flask(__name__)
+bootstrap = Bootstrap(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + db_path
 
 db = SQLAlchemy(app)
@@ -97,6 +99,18 @@ def edit_bird(id):
     return jsonify({})
 
 
+# todo: implement this template
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html', error = e), 404
+
+@app.route('/')
+def index():
+    highlight = {'min': 1, 'max': 2}
+    birds = Bird.query.all()
+    return render_template('index.html', birds=birds, highlight=highlight)
+
 if __name__ == '__main__':
     db.create_all()
     app.run(debug=True)
+
