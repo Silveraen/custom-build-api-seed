@@ -110,6 +110,16 @@ def index():
     birds = Bird.query.all()
     return render_template('index.html', birds=birds, highlight=highlight)
 
+@app.route('/top10')
+def top10():
+     birds = Bird.query.order_by(Bird.ups.desc()).limit(10).all()
+     return render_template('top10.html', birds=birds)
+
+@app.route('/bottom10')
+def bottom10():
+     birds = Bird.query.order_by(Bird.downs.desc()).limit(10).all()
+     return render_template('bottom10.html', birds=birds)
+
 if __name__ == '__main__':
     db.create_all()
     app.run(debug=True)

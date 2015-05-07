@@ -4,7 +4,7 @@
 {% block navbar %}
     <nav class="navbar navbar-inverse" role="navigation">
         <div class="container">
-            <a class="navbar-brand" href="#">List of Birds</a>
+            <a class="navbar-brand" href="/">List of Birds</a>
 	    <a class="navbar-brand" href="/top10">Biggest Douchebag</a> 	    <a class="navbar-brand" href="/bottom10">Smallest Douchebag</a>
         </div>
     </nav>
@@ -12,7 +12,7 @@
 
 {% block content %}
     <div class="container">
-        <h1>Bird Info</h1>
+        <h1>Smallest Douchebags</h1>
 
     {% for bird in birds %}
     <table class = "table table-hover" style = "width:625px; border-collapse: collapse;">
@@ -25,7 +25,7 @@
     <tr>
     	<td colspan = 2 style="width:100px; text-align: left;">{{ bird.author }} </td>
         <td colspan = 1 style="width:225px; text-align: left;">Score: {{ bird.score }}</td>
-        <td colspan = 1 style="width:100px; text-align: left;">Ups: {{ bird.ups }}</td>
+        <td colspan = 1 style="width:100px; text-align: left;">Downs: {{ bird.downs }}</td>
     </tr>
     </table>
     {% endfor %}
