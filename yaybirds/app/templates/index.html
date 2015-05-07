@@ -16,9 +16,10 @@
     {% for bird in birds %}
     <table class="table table-hover">
     <tr>
-        <th>Id</th>
+        <th style = "width:50px;">Id</th>
         <th></th>
-        <th>Name</th>
+        <th style = "width:150px;">Author</th>
+	<th></th>
     </tr>
     <tr>
         <td>
@@ -28,7 +29,7 @@
             {% if hl %}</b>{% endif %}
         </td>
         <td></td>
-        <td>{{ bird.name }}</td>
+        <td>{{ bird.author }}</td>
         <td></td>
     </tr>
     <tr>

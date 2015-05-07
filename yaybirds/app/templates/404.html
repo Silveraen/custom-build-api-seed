@@ -1,18 +1,24 @@
 {% extends 'bootstrap/base.html' %}
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-{% block title %}Birds cannot be found (fo.o)f{% endblock %}
+{% block title %}
+Birds cannot be found (fo.o)f
+{% endblock %}
 
 {% block navbar %}
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <nav class="navbar navbar-inverse" role="navigation">
         <div class="container">
-            <a class="navbar-brand" href="#">List of Birds</a>
+            <a class="navbar-brand" href="/">List of Birds</a>
         </div>
     </nav>
 {% endblock %}
 
 {% block content %}
-<i class="fa fa-twitter fa-6"></i>
-    <div class="container">
-        <h1>Bird Info</h1>
+<div class="row">
+    <div class="col-md-1">
+        <i class="fa fa-twitter fa-5x"></i>
     </div>
+    <div class="col-md-3:focus">
+        <p class="bg-success"><font size="4em">Birds are sleeping could not be found...</font></p>
+    </div>
+</div>
 {% endblock %}

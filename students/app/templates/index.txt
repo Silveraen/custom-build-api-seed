@@ -1,0 +1,13 @@
+{% extends 'bootstrap/base.html' %} {% block title %}List of Students{% endblock %} {% block navbar %}
+List of Students
+{% endblock %} {% block content %}
+Student Info
+{% for student in students %} {% endfor %}
+Id
+
+Name
+{% set hl = student.id <= highlight['min'] %} {% if hl %}{% endif %} {{ student.id }} {% if hl %}{% endif %}
+
+{{ student.name }}
+
+{% endblock %}

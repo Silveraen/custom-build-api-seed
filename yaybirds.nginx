@@ -2,9 +2,9 @@
 
 server {
     listen 80;
-    server_name _;
-    access_log /var/log/nginx/student.access.log;
-    error_log /var/log/nginx/student.error.log;
+#    server_name _;
+    access_log /var/log/nginx/yaybirds.access.log;
+    error_log /var/log/nginx/yaybirds.error.log;
     location / {
         proxy_pass http://127.0.0.1:5000;
         proxy_redirect off;
@@ -13,9 +13,9 @@ server {
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     }
     location /static {
-        alias /home/vagrant/student/static;
+        alias /home/vagrant/yaybirds/static;
     }
     location /favicon.ico {
-        alias /home/vagrant/student/static/favicon.ico;
+        alias /home/vagrant/yaybirds/static/favicon.ico;
     }
 }
